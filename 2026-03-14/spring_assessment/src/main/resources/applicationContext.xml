@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+
+    <bean id="address" class="com.capgemini.spring_assessment.Address">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Bangalore"/>
+        <constructor-arg value="Karnataka"/>
+        <constructor-arg value="India"/>
+        <constructor-arg value="560001"/>
+    </bean>
+
+    <bean id="employee" class="com.capgemini.spring_assessment.Employee">
+
+        <constructor-arg ref="address"/>
+
+        <property name="id" value="101"/>
+        <property name="name" value="Mike"/>
+        <property name="email" value="mike@gmail.com"/>
+        <property name="password" value="1234"/>
+        <property name="age" value="28"/>
+        <property name="salary" value="60000"/>
+
+    </bean>
+
+    <bean id="employeeService" class="com.capgemini.spring_assessment.EmployeeServiceImpl">
+        <property name="employee" ref="employee"/>
+    </bean>
+
+</beans>
